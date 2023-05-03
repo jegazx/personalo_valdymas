@@ -41,23 +41,48 @@ class PersonaloValdymas():
                 self.atleisti_darbuotojai.append(darbuotojas)
                 break
 
-    def keisti_vardas(self, vardas_pavarde):
-        pass
+    def keisti_vardas(self, vardas_pavarde, naujas_vardas):
+        for darbuotojas in self.darbuotojai:
+            if darbuotojas.vardas_pavarde == vardas_pavarde:
+                vardas, pavarde = vardas_pavarde.split()
+                vardas = naujas_vardas
+                vardas_pavarde = naujas_vardas + " " + pavarde
+                return vardas_pavarde
+                
 
-    def keisti_pavarde(self, vardas_pavarde):
-        pass
+    def keisti_pavarde(self, vardas_pavarde, nauja_pavarde):
+        for darbuotojas in self.atleisti_darbuotojai:
+            if darbuotojas.vardas_pavarde == vardas_pavarde:
+                vardas, pavarde = vardas_pavarde.split
+                pavarde = nauja_pavarde
+                vardas_pavarde = vardas + " " + nauja_pavarde
+                return vardas_pavarde
+
 
     def keisti_komentara(self,vardas_pavarde, komentaras):
-        pass
+        for darbuotojas in self.darbuotojai:
+            if darbuotojas.vardas_pavarde == vardas_pavarde:
+                darbuotojas.komentaras = komentaras
+                break
 
     def keisti_alga(self, vardas_pavarde, alga):
-        pass
+        for darbuotojas in self.darbuotojai:
+            if darbuotojas.vardas_pavarde == vardas_pavarde:
+                darbuotojas.alga = alga
+                break
 
     def keisti_telefona(self, vardas_pavarde, tel_numeris):
-        pass
+        for darbuotojas in self.darbuotojai:
+            if darbuotojas.vardas_pavarde == vardas_pavarde:
+                darbuotojas.tel_numeris = tel_numeris
+                break
 
     def keisti_padalinys(self, vardas_pavarde, padalinys):
-        pass
+        for darbuotojas in self.darbuotojai:
+            if darbuotojas.vardas_pavarde == vardas_pavarde:
+                darbuotojas.padalinys = padalinys
+                break
+
 
     def darbuotoju_sarasas(self):
         if self.darbuotojai:
@@ -78,3 +103,5 @@ darbuotojai.darbuotoju_sarasas()
 darbuotojai.atleisti_darbuotoja("Algis Algimantas", "2023-05-02")
 darbuotojai.darbuotoju_sarasas()
 darbuotojai.atleisti_darbuotoju_sarasas()
+darbuotojai.keisti_alga("Algimante Algimantas", 2555)
+darbuotojai.darbuotoju_sarasas()
