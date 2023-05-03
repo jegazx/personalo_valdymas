@@ -46,7 +46,7 @@ class PersonaloValdymas():
             if darbuotojas.vardas_pavarde == vardas_pavarde:
                 vardas, pavarde = vardas_pavarde.split()
                 vardas = naujas_vardas
-                vardas_pavarde = naujas_vardas + " " + pavarde
+                darbuotojas.vardas_pavarde = vardas + " " + pavarde
                 return vardas_pavarde
                 
 
@@ -55,7 +55,7 @@ class PersonaloValdymas():
             if darbuotojas.vardas_pavarde == vardas_pavarde:
                 vardas, pavarde = vardas_pavarde.split
                 pavarde = nauja_pavarde
-                vardas_pavarde = vardas + " " + nauja_pavarde
+                darbuotojas.vardas_pavarde = vardas + " " + pavarde
                 return vardas_pavarde
 
 
@@ -100,8 +100,10 @@ darbuotojai = PersonaloValdymas()
 darbuotojai.prideti_darbuotoja("Algis Algimantas", "sokejas", 1111, "2002-05-12", None, "1234567988", "987654321", "traktoristas", "it")
 darbuotojai.prideti_darbuotoja("Algimante Algimantas", "sokejas", 1111, "2002-05-12", None, "1234567988", "987654321", "traktoristas", "it")
 darbuotojai.darbuotoju_sarasas()
-darbuotojai.atleisti_darbuotoja("Algis Algimantas", "2023-05-02")
-darbuotojai.darbuotoju_sarasas()
-darbuotojai.atleisti_darbuotoju_sarasas()
-darbuotojai.keisti_alga("Algimante Algimantas", 2555)
+# darbuotojai.atleisti_darbuotoja("Algis Algimantas", "2023-05-02")
+# darbuotojai.darbuotoju_sarasas()
+# darbuotojai.atleisti_darbuotoju_sarasas()
+# darbuotojai.keisti_alga("Algimante Algimantas", 2555)
+# darbuotojai.darbuotoju_sarasas()
+darbuotojai.keisti_vardas("Algis Algimantas", "Pienius")
 darbuotojai.darbuotoju_sarasas()
