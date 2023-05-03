@@ -24,14 +24,22 @@ class Darbuotojas():
 
 class PersonaloValdymas():
     def __init__(self):
-        self.darbuotojas = []
+        self.darbuotojai = []
+        self.atleisti_darbuotojai = []
         
 
     def prideti_darbuotoja(self, vardas_pavarde, komentaras, alga, priimtas, atleistas, tel_numeris, ak, issilavinimas, padalinys):
-        pass
+        darbuotojas = Darbuotojas(vardas_pavarde, komentaras, alga, priimtas, atleistas, tel_numeris, ak, issilavinimas, padalinys)
+        self.darbuotojai.append(darbuotojas)
+        print(f"{darbuotojas} buvo pridetas")
 
     def atleisti_darbuotoja(self, vardas_pavarde, atleistas):
-        pass
+        for darbuotojas in self.darbuotojai:
+            if darbuotojas.vardas_pavarde == vardas_pavarde:
+                self.darbuotojai.remove(darbuotojas)
+                darbuotojas.atleistas = atleistas
+                self.atleisti_darbuotojai.append(darbuotojas)
+                break
 
     def keisti_vardas(self, vardas_pavarde):
         pass
@@ -52,5 +60,21 @@ class PersonaloValdymas():
         pass
 
     def darbuotoju_sarasas(self):
-        pass
+        if self.darbuotojai:
+            print("Darbuotoju sarasas: ")
+            for darbuotojas in self.darbuotojai:
+                print(f"{darbuotojas.vardas_pavarde} - {darbuotojas.komentaras} - {darbuotojas.alga} - {darbuotojas.priimtas} - {darbuotojas.atleistas} - {darbuotojas.tel_numeris} - {darbuotojas.ak} - {darbuotojas.issilavinimas} - {darbuotojas.padalinys}")
+    
+    def atleisti_darbuotoju_sarasas(self):
+        if self.atleisti_darbuotojai:
+            print("Atleistu darbuotoju sarasas: ")
+            for darbuotojas in self.atleisti_darbuotojai:
+                print(f"{darbuotojas.vardas_pavarde} - {darbuotojas.komentaras} - {darbuotojas.alga} - {darbuotojas.priimtas} - {darbuotojas.atleistas} - {darbuotojas.tel_numeris} - {darbuotojas.ak} - {darbuotojas.issilavinimas} - {darbuotojas.padalinys}")
 
+darbuotojai = PersonaloValdymas()
+darbuotojai.prideti_darbuotoja("Algis Algimantas", "sokejas", 1111, "2002-05-12", None, "1234567988", "987654321", "traktoristas", "it")
+darbuotojai.prideti_darbuotoja("Algimante Algimantas", "sokejas", 1111, "2002-05-12", None, "1234567988", "987654321", "traktoristas", "it")
+darbuotojai.darbuotoju_sarasas()
+darbuotojai.atleisti_darbuotoja("Algis Algimantas", "2023-05-02")
+darbuotojai.darbuotoju_sarasas()
+darbuotojai.atleisti_darbuotoju_sarasas()
