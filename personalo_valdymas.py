@@ -152,13 +152,8 @@ class PersonaloValdymas():
 
         logger.info('Atspausdintas darbuotojų sąrašas')
 
-    def atleisti_darbuotoju_sarasas(self):
-        if self.atleisti_darbuotojai:
-
-    
     def atleistu_darbuotoju_sarasas(self):
         if self.__atleisti_darbuotojai:
-
             print("Atleistu darbuotoju sarasas: ")
             for darbuotojas in self.__atleisti_darbuotojai:
                 print(f"{darbuotojas.vardas_pavarde} - {darbuotojas.komentaras} - {darbuotojas.alga} - {darbuotojas.priimtas} - {darbuotojas.atleistas} - {darbuotojas.tel_numeris} - {darbuotojas.ak} - {darbuotojas.issilavinimas} - {darbuotojas.padalinys}")
@@ -179,8 +174,8 @@ class PersonaloValdymas():
 
 darbuotojai = PersonaloValdymas()
 darbuotojai = PersonaloValdymas.pickle_nuskaitymas(darbuotojai)
-# darbuotojai.prideti_darbuotoja("Algis Algimantas", "sokejas", 1111, "2002-05-12", None, "1234567988", "987654321", "traktoristas", "it")
-# darbuotojai.prideti_darbuotoja("Algimante Algimantas", "sokejas", 1111, "2002-05-12", None, "1234567988", "987654321", "traktoristas", "it")
+#darbuotojai.prideti_darbuotoja("Algis Algimantas", "sokejas", 1111, "2002-05-12", None, "1234567988", "987654321", "traktoristas", "it")
+#darbuotojai.prideti_darbuotoja("Algimante Algimantas", "sokejas", 1111, "2002-05-12", None, "1234567988", "987654321", "traktoristas", "it")
 # darbuotojai.darbuotoju_sarasas()
 # darbuotojai.atleisti_darbuotoja("Algis Algimantas", "2023-05-02")
 # darbuotojai.atleisti_darbuotoja("Algimante Algimantas", "2023-05-02")
