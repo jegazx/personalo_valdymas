@@ -182,6 +182,7 @@ darbuotojai = PersonaloValdymas.pickle_nuskaitymas(darbuotojai)
 # darbuotojai.darbuotoju_sarasas()
 # darbuotojai.atleisti_darbuotoju_sarasas()
 darbuotojai.keisti_alga("Algimante Algimantas", 2555)
+darbuotojai.keisti_alga("Algimante Algimantas", 1478)
 # darbuotojai.darbuotoju_sarasas()
 
 darbuotojai.keisti_vardas("Algis Algimantas", "Pienius")
