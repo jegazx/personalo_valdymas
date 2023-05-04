@@ -1,28 +1,31 @@
 import PySimpleGUI as sg
 from datetime import date
-from personalo_valdymas import PersonaloValdymas, Darbuotojas
+from personalo_valdymas import PersonaloValdymas
+
+
+def sarasas():
+    for darbuotojas in darbuotojai._PersonaloValdymas__darbuotojai.values():
+        td.append([darbuotojas['vardas_pavarde'], darbuotojas['komentaras'], darbuotojas['alga'], darbuotojas['priimtas'], darbuotojas['atleistas'], darbuotojas['tel_numeris'], darbuotojas['ak'], darbuotojas['issilavinimas'], darbuotojas['padalinys']])
 
 darbuotojai = PersonaloValdymas()
 darbuotojai = PersonaloValdymas.pickle_nuskaitymas(darbuotojai)
 td=[]
 Headings=['Vardas Pavardė', 'Komentaras', 'Alga', 'Priimtas', 'Atleistas', 'Telefono numeris', 'Asmens kodas', 'Išsilavinimas', 'Skyrius']
 layout=[
-        [sg.Text(Headings[0]),sg.Input(size=20,key=Headings[0])],
-        [sg.Text(Headings[1]),sg.Input(size=20,key=Headings[1])],
-        [sg.Text(Headings[2]),sg.Input(size=20,key=Headings[2])],
-        [sg.Text(Headings[3]),sg.Input(size=20,key=Headings[3])],
-        [sg.Text(Headings[4]),sg.Input(size=20,key=Headings[4])],
-        [sg.Text(Headings[5]),sg.Input(size=20,key=Headings[5])],
-        [sg.Text(Headings[6]),sg.Input(size=20,key=Headings[6])],
-        [sg.Text(Headings[7]),sg.Input(size=20,key=Headings[7])],
-        [sg.Text(Headings[8]),sg.Combo(['IT skyrius','Finansai','Administracija'],key=Headings[8])],
-        [sg.Button('Pridėti'),sg.Button('Redaguoti'),
-            sg.Button('Išsaugoti',disabled=True),sg.Button('Ištrinti'),sg.Exit()],
+        [sg.Text(Headings[0], size=(15,1)),sg.Input(size=20,key=Headings[0])],
+        [sg.Text(Headings[1], size=(15,1)),sg.Input(size=20,key=Headings[1])],
+        [sg.Text(Headings[2], size=(15,1)),sg.Input(size=20,key=Headings[2])],
+        [sg.Text(Headings[3], size=(15,1)),sg.Input(size=20,key=Headings[3])],
+        [sg.Text(Headings[4], size=(15,1)),sg.Input(size=20,key=Headings[4])],
+        [sg.Text(Headings[5], size=(15,1)),sg.Input(size=20,key=Headings[5])],
+        [sg.Text(Headings[6], size=(15,1)),sg.Input(size=20,key=Headings[6])],
+        [sg.Text(Headings[7], size=(15,1)),sg.Input(size=20,key=Headings[7])],
+        [sg.Text(Headings[8], size=(18,1)),sg.Combo(['IT skyrius','Finansai','Administracija'],key=Headings[8])],
+        [sg.Button('Pridėti'), sg.Button('Redaguoti'), sg.Button('Išsaugoti',disabled=True), sg.Button('Ištrinti'), sg.Push(), sg.Exit()],
         [sg.Table(td,Headings,key='myTable')]]
 
 window=sg.Window('Personalo valdymo programa',layout)
-for darbuotojas in darbuotojai._PersonaloValdymas__darbuotojai.values():
-    td.append([darbuotojas['vardas_pavarde'], darbuotojas['komentaras'], darbuotojas['alga'], darbuotojas['priimtas'], darbuotojas['atleistas'], darbuotojas['tel_numeris'], darbuotojas['ak'], darbuotojas['issilavinimas'], darbuotojas['padalinys']])
+sarasas()
 while True:
     event,values= window.read()
     print (values)
