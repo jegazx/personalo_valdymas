@@ -172,7 +172,7 @@ class PersonaloValdymas():
             logger.info('Pickle nuskaitymas')
         return self
 
-# if __name__ == "__name__":
+# if __name__ == "__main__":
 darbuotojai = PersonaloValdymas()
 darbuotojai = PersonaloValdymas.pickle_nuskaitymas(darbuotojai)
 # darbuotojai.prideti_darbuotoja("Algis Algimantas", "sokejas", 1111, "2002-05-12", None, "1234567988", "987654321", "traktoristas", "it")
