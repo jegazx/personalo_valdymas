@@ -1,13 +1,46 @@
 {
-    "hj": {
-        "vardas_pavarde": "hj",
-        "komentaras": "hj",
-        "alga": "jh",
-        "priimtas": "jh",
-        "atleistas": "jh",
-        "tel_numeris": "jh",
-        "ak": "jh",
-        "issilavinimas": "hj",
-        "padalinys": "jh"
+    "Deividas Skestenis": {
+        "vardas_pavarde": "Deividas Skestenis",
+        "komentaras": "Direktorius",
+        "alga": "0",
+        "priimtas": "2024-05-03",
+        "atleistas": "",
+        "tel_numeris": "866666666",
+        "ak": "39000000000",
+        "issilavinimas": "Auk\u0161tasis",
+        "padalinys": "Administracija"
+    },
+    "Bronius Grigaras": {
+        "vardas_pavarde": "Bronius Grigaras",
+        "komentaras": "Programuotojas",
+        "alga": "0",
+        "priimtas": "2023-05-03",
+        "atleistas": "",
+        "tel_numeris": "866666666",
+        "ak": "39000000000",
+        "issilavinimas": "Auk\u0161tasis",
+        "padalinys": "IT skyrius"
+    },
+    "Karolis Jasadavi\u010dius": {
+        "vardas_pavarde": "Karolis Jasadavi\u010dius",
+        "komentaras": "Programuotojas",
+        "alga": "0",
+        "priimtas": "2023-05-03",
+        "atleistas": "",
+        "tel_numeris": "866666666",
+        "ak": "39000000000",
+        "issilavinimas": "Auk\u0161tasis",
+        "padalinys": "IT skyrius"
+    },
+    "Mindaugas Turauskas": {
+        "vardas_pavarde": "Mindaugas Turauskas",
+        "komentaras": "Programuotojas",
+        "alga": "0",
+        "priimtas": "2023-05-03",
+        "atleistas": "",
+        "tel_numeris": "866666666",
+        "ak": "39000000000",
+        "issilavinimas": "Auk\u0161tasis",
+        "padalinys": "IT skyrius"
     }
 }
