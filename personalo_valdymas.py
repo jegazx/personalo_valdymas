@@ -157,7 +157,7 @@ class PersonaloValdymas():
 
 # if __name__ == "__name__":
 darbuotojai = PersonaloValdymas()
-Sdarbuotojai = PersonaloValdymas.pickle_nuskaitymas(darbuotojai)
+darbuotojai = PersonaloValdymas.pickle_nuskaitymas(darbuotojai)
 # darbuotojai.prideti_darbuotoja("Algis Algimantas", "sokejas", 1111, "2002-05-12", None, "1234567988", "987654321", "traktoristas", "it")
 # darbuotojai.prideti_darbuotoja("Algimante Algimantas", "sokejas", 1111, "2002-05-12", None, "1234567988", "987654321", "traktoristas", "it")
 darbuotojai.darbuotoju_sarasas()

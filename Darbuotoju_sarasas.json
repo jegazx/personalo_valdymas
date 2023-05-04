@@ -1,24 +1,123 @@
 {
-    "Algimante Algimantas": {
-        "vardas_pavarde": "Algimante Algimantas",
-        "komentaras": "sokejas",
-        "alga": 2555,
-        "priimtas": "2002-05-12",
-        "atleistas": null,
-        "tel_numeris": "1234567988",
-        "ak": "987654321",
-        "issilavinimas": "traktoristas",
-        "padalinys": "it"
+    "Karolis": {
+        "vardas_pavarde": "Karolis",
+        "komentaras": "Jurkus",
+        "alga": "Gameris",
+        "priimtas": "1000",
+        "atleistas": "2023-05-04",
+        "tel_numeris": "",
+        "ak": "3456455234",
+        "issilavinimas": "345645456",
+        "padalinys": "Koleginis"
     },
-    "Pienius Algimantas": {
-        "vardas_pavarde": "Pienius Algimantas",
-        "komentaras": "sokejas",
-        "alga": 1111,
-        "priimtas": "2002-05-12",
-        "atleistas": null,
-        "tel_numeris": "1234567988",
-        "ak": "987654321",
-        "issilavinimas": "traktoristas",
-        "padalinys": "it"
+    "Tadas": {
+        "vardas_pavarde": "Tadas",
+        "komentaras": "Tadulis",
+        "alga": "Naujokas",
+        "priimtas": "300",
+        "atleistas": "2023-04-04",
+        "tel_numeris": "",
+        "ak": "345634",
+        "issilavinimas": "345634534",
+        "padalinys": "Pradinis"
+    },
+    "": {
+        "vardas_pavarde": "",
+        "komentaras": "",
+        "alga": "",
+        "priimtas": "300",
+        "atleistas": "2023-04-04",
+        "tel_numeris": "",
+        "ak": "345634",
+        "issilavinimas": "345634534",
+        "padalinys": "Pradinis"
+    },
+    "Matas": {
+        "vardas_pavarde": "Matas",
+        "komentaras": "Mnkas",
+        "alga": "Gameris",
+        "priimtas": "100000",
+        "atleistas": "2022-22-22",
+        "tel_numeris": "",
+        "ak": "32423",
+        "issilavinimas": "45345",
+        "padalinys": "Vidurinis"
+    },
+    "asd": {
+        "vardas_pavarde": "asd",
+        "komentaras": "asd",
+        "alga": "asd",
+        "priimtas": "asd",
+        "atleistas": "asd",
+        "tel_numeris": "asd",
+        "ak": "asd",
+        "issilavinimas": "asd",
+        "padalinys": "IT skyrius"
+    },
+    "Tadas Jurkus": {
+        "vardas_pavarde": "Tadas Jurkus",
+        "komentaras": "Naujokas",
+        "alga": "200",
+        "priimtas": "2023-05-04",
+        "atleistas": "",
+        "tel_numeris": "3463456",
+        "ak": "3456456745",
+        "issilavinimas": "Vidurinis",
+        "padalinys": "Administracija"
+    },
+    "asa": {
+        "vardas_pavarde": "asa",
+        "komentaras": "as",
+        "alga": "as",
+        "priimtas": "as",
+        "atleistas": "",
+        "tel_numeris": "as",
+        "ak": "as",
+        "issilavinimas": "as",
+        "padalinys": "IT skyrius"
+    },
+    "Tadas Tadulis": {
+        "vardas_pavarde": "Tadas Tadulis",
+        "komentaras": "Naujokas",
+        "alga": "1000",
+        "priimtas": "2023-05-23",
+        "atleistas": "",
+        "tel_numeris": "34563456",
+        "ak": "34463645",
+        "issilavinimas": "Vidurinis",
+        "padalinys": "IT skyrius"
+    },
+    "Matas Matauskas": {
+        "vardas_pavarde": "Matas Matauskas",
+        "komentaras": "Senbuvis",
+        "alga": "1200",
+        "priimtas": "2021-04-03",
+        "atleistas": "",
+        "tel_numeris": "45673456",
+        "ak": "3457543",
+        "issilavinimas": "Koleginis",
+        "padalinys": "Finansai"
+    },
+    "Nerd Nerdas": {
+        "vardas_pavarde": "Nerd Nerdas",
+        "komentaras": "ITi\u0161nikas",
+        "alga": "2000",
+        "priimtas": "2020-02-02",
+        "atleistas": "",
+        "tel_numeris": "4563456",
+        "ak": "345346",
+        "issilavinimas": "3453456",
+        "padalinys": "IT skyrius"
+    },
+    "Direktorius": {
+        "vardas_pavarde": "Direktorius",
+        "komentaras": "Direktorius",
+        "alga": "5000",
+        "priimtas": "1999-01-01",
+        "atleistas": "",
+        "tel_numeris": "3464567",
+        "ak": "3453463",
+        "issilavinimas": "Auk\u0161tasis",
+        "padalinys": "IT skyrius"
     }
 }
