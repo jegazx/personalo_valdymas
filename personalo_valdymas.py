@@ -14,7 +14,7 @@ def create_logger(logger_name, log_file):
     file_handler.setLevel(logging.DEBUG)
 
     # Formatteris, kad pranešimai būtų formatuojami pagal pageidavimą
-    formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+    formatter = logging.Formatter('%(asctime)s | Line: %(lineno)d | %(levelname)s | %(message)s')
     file_handler.setFormatter(formatter)
 
     # Priskiriamas handleris loggeriui
@@ -99,7 +99,7 @@ class PersonaloValdymas():
             print(f"Darbuotojas {vardas_pavarde} nerastas")
         else:
             darbuotojas['komentaras'] = komentaras
-            logger.info(f'Pakeistas darbuotojo komentaras. Naujas komentaras: "{komentaras}"')
+            logger.info(f'Pakeistas darbuotojo "{vardas_pavarde}" komentaras"')
             PersonaloValdymas.pickle_sukurimas(self)
             return darbuotojas['vardas_pavarde'] 
 
@@ -109,7 +109,7 @@ class PersonaloValdymas():
             print(f"Darbuotojas {vardas_pavarde} nerastas")
         else:
             darbuotojas['alga'] = alga
-            logger.info(f'Pakeista darbuotojo alga. Nauja alga: "{alga}"')
+            logger.info(f'Pakeista darbuotojo "{vardas_pavarde}" alga.')
             PersonaloValdymas.pickle_sukurimas(self)
             return darbuotojas['vardas_pavarde'] 
 
@@ -119,7 +119,7 @@ class PersonaloValdymas():
             print(f"Darbuotojas {vardas_pavarde} nerastas")
         else:
             darbuotojas['tel_numeris'] = tel_numeris
-            logger.info(f'Pakeistas darbuotojo tel_numeris. Naujas tel_numeris: "{tel_numeris}"')
+            logger.info(f'Pakeistas darbuotojo "{vardas_pavarde}" tel_numeris')
             PersonaloValdymas.pickle_sukurimas(self)
             return darbuotojas['vardas_pavarde'] 
 
@@ -129,7 +129,7 @@ class PersonaloValdymas():
             print(f"Darbuotojas {vardas_pavarde} nerastas")
         else:
             darbuotojas['padalinys'] = padalinys
-            logger.info(f'Pakeistas darbuotojo padalinys. Naujas padalinys: "{padalinys}"')
+            logger.info(f'Pakeistas darbuotojo "{vardas_pavarde}" padalinys')
             PersonaloValdymas.pickle_sukurimas(self)
             return darbuotojas['vardas_pavarde'] 
 
@@ -138,6 +138,7 @@ class PersonaloValdymas():
         print(list(self.__darbuotojai.values()))
         with open('Darbuotoju_sarasas.json', 'w') as f:
             json.dump(self.__darbuotojai, f, indent=4)
+        logger.info('Darbas su failu: "Darbuotoju_sarasas.json"')
         return list(self.__darbuotojai.values())
 
     def get_darbuotojai(self):
@@ -154,18 +155,21 @@ class PersonaloValdymas():
         print(list(self.__atleisti_darbuotojai.values()))
         with open('Atleistu_darbuotoju_sarasas.json', 'w') as f:
             json.dump(self.__atleisti_darbuotojai, f, indent=4, cls=DateEncoder)
+            logger.info(f'Darbas su failu: "Atleistu_darbuotoju_sarasas.json"')
         return list(self.__atleisti_darbuotojai.values())
 
     def pickle_sukurimas(self):
         with open("Darbuotoju_duomenys.pickle", "wb") as f:
             pickle.dump(self.__darbuotojai, f)
             pickle.dump(self.__atleisti_darbuotojai, f)
+            logger.info('Pickle sukūrinmas')
         return self
     
     def pickle_nuskaitymas(self):
         with open('Darbuotoju_duomenys.pickle', 'rb') as f:
             self.__darbuotojai = pickle.load(f)
             self.__atleisti_darbuotojai = pickle.load(f)
+            logger.info('Pickle nuskaitymas')
         return self
 
 # if __name__ == "__name__":
@@ -185,7 +189,7 @@ darbuotojai = PersonaloValdymas.pickle_nuskaitymas(darbuotojai)
 # darbuotojai.keisti_vardas("Algis Algimantas", "Pienius")
 # darbuotojai.darbuotoju_sarasas()
 
-logger.info('Programa išjungta')
+# logger.info('Programa išjungta')
 # darbuotojai.keisti_vardas("Algis Algimantas", "Pienius")
 # darbuotojai.darbuotoju_sarasas()
 
