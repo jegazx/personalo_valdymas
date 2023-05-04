@@ -133,6 +133,9 @@ class PersonaloValdymas():
             json.dump(self.__darbuotojai, f, indent=4)
         return list(self.__darbuotojai.values())
 
+    def get_darbuotojai(self):
+        return self.__darbuotojai
+
     def get_darbuotojas(self, vardas_pavarde):
         return self.__darbuotojai.get(vardas_pavarde, None)
     
@@ -160,11 +163,11 @@ darbuotojai = PersonaloValdymas()
 darbuotojai = PersonaloValdymas.pickle_nuskaitymas(darbuotojai)
 # darbuotojai.prideti_darbuotoja("Algis Algimantas", "sokejas", 1111, "2002-05-12", None, "1234567988", "987654321", "traktoristas", "it")
 # darbuotojai.prideti_darbuotoja("Algimante Algimantas", "sokejas", 1111, "2002-05-12", None, "1234567988", "987654321", "traktoristas", "it")
-darbuotojai.darbuotoju_sarasas()
+# darbuotojai.darbuotoju_sarasas()
 # darbuotojai.atleisti_darbuotoja("Algis Algimantas", "2023-05-02")
 # darbuotojai.atleisti_darbuotoja("Algimante Algimantas", "2023-05-02")
 # darbuotojai.darbuotoju_sarasas()
-darbuotojai.atleistu_darbuotoju_sarasas()
+# darbuotojai.atleistu_darbuotoju_sarasas()
 # darbuotojai.keisti_alga("Algimante Algimantas", 2555)
 # darbuotojai.keisti_alga("Algimante Algimantas", 1478)
 # darbuotojai.darbuotoju_sarasas()
@@ -175,4 +178,6 @@ darbuotojai.atleistu_darbuotoju_sarasas()
 logger.info('Programa išjungta')
 # darbuotojai.keisti_vardas("Algis Algimantas", "Pienius")
 # darbuotojai.darbuotoju_sarasas()
+
+print(darbuotojai._PersonaloValdymas__darbuotojai)
 
