@@ -1,0 +1,24 @@
+{
+    "Algimante Algimantas": {
+        "vardas_pavarde": "Algimante Algimantas",
+        "komentaras": "sokejas",
+        "alga": 2555,
+        "priimtas": "2002-05-12",
+        "atleistas": null,
+        "tel_numeris": "1234567988",
+        "ak": "987654321",
+        "issilavinimas": "traktoristas",
+        "padalinys": "it"
+    },
+    "Pienius Algimantas": {
+        "vardas_pavarde": "Pienius Algimantas",
+        "komentaras": "sokejas",
+        "alga": 1111,
+        "priimtas": "2002-05-12",
+        "atleistas": null,
+        "tel_numeris": "1234567988",
+        "ak": "987654321",
+        "issilavinimas": "traktoristas",
+        "padalinys": "it"
+    }
+}
