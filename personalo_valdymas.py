@@ -1,5 +1,6 @@
 import os
 import logging
+import pickle
 
 def create_logger(logger_name, log_file):
     # Logger'is
@@ -21,9 +22,6 @@ def create_logger(logger_name, log_file):
 
 logger = create_logger('logging', 'personalo_valdymas.log')
 logger.info('Paleista programa')
-
-import pickle
-
 
 def clear():
     if os.name == 'nt':
@@ -53,11 +51,11 @@ class PersonaloValdymas():
     def prideti_darbuotoja(self, vardas_pavarde, komentaras, alga, priimtas, atleistas, tel_numeris, ak, issilavinimas, padalinys):
         darbuotojas = Darbuotojas(vardas_pavarde, komentaras, alga, priimtas, atleistas, tel_numeris, ak, issilavinimas, padalinys)
         self.__darbuotojai.append(darbuotojas)
-        print(f"{darbuotojas} buvo pridetas")
+        print(f"{vardas_pavarde} buvo pridetas")
 
         logger.info(f'Pridėtas darbuotojas: "{vardas_pavarde}"')
 
-        PersonaloValdymas.pickle_sukurimas(darbuotojai)
+        PersonaloValdymas.pickle_sukurimas(self)
 
 
     def atleisti_darbuotoja(self, vardas_pavarde, atleistas):
@@ -66,11 +64,9 @@ class PersonaloValdymas():
                 self.__darbuotojai.remove(darbuotojas)
                 darbuotojas.atleistas = atleistas
 
-                self.atleisti_darbuotojai.append(darbuotojas)
-                logger.info(f'Atleistas darbuotojas: "{vardas_pavarde}"')
-
                 self.__atleisti_darbuotojai.append(darbuotojas)
-                PersonaloValdymas.pickle_sukurimas(darbuotojai)
+                logger.info(f'Atleistas darbuotojas: "{vardas_pavarde}"')
+                PersonaloValdymas.pickle_sukurimas(self)
 
                 break
 
@@ -83,7 +79,7 @@ class PersonaloValdymas():
 
                 logger.info(f'Pakeistas darbuotojo vardas. Naujas vardas ir pavardė: "{vardas} {pavarde}"')
 
-                PersonaloValdymas.pickle_sukurimas(darbuotojai)
+                PersonaloValdymas.pickle_sukurimas(self)
 
                 return vardas_pavarde
                 
@@ -96,7 +92,7 @@ class PersonaloValdymas():
 
                 logger.info(f'Pakeista darbuotojo pavardė. Naujas vardas ir pavardė: "{vardas} {pavarde}"')
 
-                PersonaloValdymas.pickle_sukurimas(darbuotojai)
+                PersonaloValdymas.pickle_sukurimas(self)
 
                 return vardas_pavarde
 
@@ -107,7 +103,7 @@ class PersonaloValdymas():
 
                 logger.info(f'Pakeistas darbuotojo "{vardas_pavarde}" komentaras')
 
-                PersonaloValdymas.pickle_sukurimas(darbuotojai)
+                PersonaloValdymas.pickle_sukurimas(self)
 
                 break
 
@@ -118,7 +114,7 @@ class PersonaloValdymas():
 
                 logger.warning(f'Pakeista alga darbuotojui "{vardas_pavarde}". Nauja alga: {alga}')
 
-                PersonaloValdymas.pickle_sukurimas(darbuotojai)
+                PersonaloValdymas.pickle_sukurimas(self)
 
                 break
 
@@ -129,7 +125,7 @@ class PersonaloValdymas():
 
                 logger.info(f'Pakeistas darbuotojo "{vardas_pavarde}" telefono Nr. Naujas telefono Nr.: {tel_numeris}')
 
-                PersonaloValdymas.pickle_sukurimas(darbuotojai)
+                PersonaloValdymas.pickle_sukurimas(self)
 
                 break
 
@@ -140,7 +136,7 @@ class PersonaloValdymas():
 
                 logger.info('Pakeistas padalinys')
 
-                PersonaloValdymas.pickle_sukurimas(darbuotojai)
+                PersonaloValdymas.pickle_sukurimas(self)
 
                 break
 
@@ -149,8 +145,15 @@ class PersonaloValdymas():
             print("Darbuotoju sarasas: ")
             for darbuotojas in self.__darbuotojai:
                 print(f"{darbuotojas.vardas_pavarde} - {darbuotojas.komentaras} - {darbuotojas.alga} - {darbuotojas.priimtas} - {darbuotojas.atleistas} - {darbuotojas.tel_numeris} - {darbuotojas.ak} - {darbuotojas.issilavinimas} - {darbuotojas.padalinys}")
-
+    
         logger.info('Atspausdintas darbuotojų sąrašas')
+
+
+    def get_darbuotojas(self, vardas_pavarde):
+        for darbuotojas in self.__darbuotojai:
+            if darbuotojas.vardas_pavarde == vardas_pavarde:
+                return darbuotojas
+    
 
     def atleistu_darbuotoju_sarasas(self):
         if self.__atleisti_darbuotojai:
@@ -161,34 +164,37 @@ class PersonaloValdymas():
         logger.info('Atspausdintas atleistų darbuotojų sąrašas')
 
     
-    def pickle_sukurimas(duomenys):
-        with open("Darbuotoju_duomenys.pickle", "wb") as file:
-            pickle.dump(duomenys, file)
-        return duomenys
+    def pickle_sukurimas(self):
+        with open("Darbuotoju_duomenys.pickle", "wb") as f:
+            pickle.dump(self.__darbuotojai, f)
+            pickle.dump(self.__atleisti_darbuotojai, f)
+        return self
     
-    def pickle_nuskaitymas(duomenys):
+    def pickle_nuskaitymas(self):
         with open('Darbuotoju_duomenys.pickle', 'rb') as f:
-            duomenys = pickle.load(f)
-        return duomenys
+            self.__darbuotojai = pickle.load(f)
+            self.__atleisti_darbuotojai = pickle.load(f)
+        return self
 
 
-darbuotojai = PersonaloValdymas()
-darbuotojai = PersonaloValdymas.pickle_nuskaitymas(darbuotojai)
-#darbuotojai.prideti_darbuotoja("Algis Algimantas", "sokejas", 1111, "2002-05-12", None, "1234567988", "987654321", "traktoristas", "it")
-#darbuotojai.prideti_darbuotoja("Algimante Algimantas", "sokejas", 1111, "2002-05-12", None, "1234567988", "987654321", "traktoristas", "it")
-# darbuotojai.darbuotoju_sarasas()
-# darbuotojai.atleisti_darbuotoja("Algis Algimantas", "2023-05-02")
-# darbuotojai.atleisti_darbuotoja("Algimante Algimantas", "2023-05-02")
-# darbuotojai.darbuotoju_sarasas()
-# darbuotojai.atleisti_darbuotoju_sarasas()
-darbuotojai.keisti_alga("Algimante Algimantas", 2555)
-darbuotojai.keisti_alga("Algimante Algimantas", 1478)
-# darbuotojai.darbuotoju_sarasas()
+if __name__ == "__name__":
+    darbuotojai = PersonaloValdymas()
+    #Sdarbuotojai = PersonaloValdymas.pickle_nuskaitymas(darbuotojai)
+    #darbuotojai.prideti_darbuotoja("Algis Algimantas", "sokejas", 1111, "2002-05-12", None, "1234567988", "987654321", "traktoristas", "it")
+    #darbuotojai.prideti_darbuotoja("Algimante Algimantas", "sokejas", 1111, "2002-05-12", None, "1234567988", "987654321", "traktoristas", "it")
+    # darbuotojai.darbuotoju_sarasas()
+    # darbuotojai.atleisti_darbuotoja("Algis Algimantas", "2023-05-02")
+    # darbuotojai.atleisti_darbuotoja("Algimante Algimantas", "2023-05-02")
+    # darbuotojai.darbuotoju_sarasas()
+    # darbuotojai.atleisti_darbuotoju_sarasas()
+    darbuotojai.keisti_alga("Algimante Algimantas", 2555)
+    darbuotojai.keisti_alga("Algimante Algimantas", 1478)
+    # darbuotojai.darbuotoju_sarasas()
 
-darbuotojai.keisti_vardas("Algis Algimantas", "Pienius")
-darbuotojai.darbuotoju_sarasas()
+    darbuotojai.keisti_vardas("Algis Algimantas", "Pienius")
+    darbuotojai.darbuotoju_sarasas()
 
-logger.info('Programa išjungta')
-# darbuotojai.keisti_vardas("Algis Algimantas", "Pienius")
-# darbuotojai.darbuotoju_sarasas()
+    logger.info('Programa išjungta')
+    # darbuotojai.keisti_vardas("Algis Algimantas", "Pienius")
+    # darbuotojai.darbuotoju_sarasas()
 
