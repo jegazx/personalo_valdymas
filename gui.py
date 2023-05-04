@@ -5,7 +5,6 @@ darbuotojai = PersonaloValdymas()
 darbuotojai = PersonaloValdymas.pickle_nuskaitymas(darbuotojai)
 td=[]
 Headings=['Vardas Pavardė', 'Komentaras', 'Alga', 'Priimtas', 'Atleistas', 'Telefono numeris', 'Asmens kodas', 'Išsilavinimas', 'Skyrius']
-
 layout=[
         [sg.Text(Headings[0]),sg.Input(size=20,key=Headings[0])],
         [sg.Text(Headings[1]),sg.Input(size=20,key=Headings[1])],
@@ -21,7 +20,8 @@ layout=[
         [sg.Table(td,Headings,key='myTable')]]
 
 window=sg.Window('Personalo valdymo programa',layout)
-
+for darbuotojas in darbuotojai._PersonaloValdymas__darbuotojai.values():
+    td.append([darbuotojas['vardas_pavarde'], darbuotojas['komentaras'], darbuotojas['alga'], darbuotojas['priimtas'], darbuotojas['atleistas'], darbuotojas['tel_numeris'], darbuotojas['ak'], darbuotojas['issilavinimas'], darbuotojas['padalinys']])
 while True:
     event,values= window.read()
     print (values)
