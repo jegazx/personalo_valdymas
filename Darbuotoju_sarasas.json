@@ -1,35 +1,13 @@
 {
-    "test": {
-        "vardas_pavarde": "test",
-        "komentaras": "est",
-        "alga": "set",
-        "priimtas": "setse",
-        "atleistas": "test",
-        "tel_numeris": "setsetse",
-        "ak": "tset",
-        "issilavinimas": "setset",
-        "padalinys": "Finansai"
-    },
-    "K J": {
-        "vardas_pavarde": "K J",
-        "komentaras": "Test",
-        "alga": "299",
-        "priimtas": "2002-20-04",
-        "atleistas": "",
-        "tel_numeris": "523523",
-        "ak": "192491249",
-        "issilavinimas": "Geras",
-        "padalinys": "Finansai"
-    },
-    "testasa": {
-        "vardas_pavarde": "testasa",
-        "komentaras": "test",
-        "alga": "tset",
-        "priimtas": "asd",
-        "atleistas": "",
-        "tel_numeris": "asda",
-        "ak": "adsdas",
-        "issilavinimas": "asd",
-        "padalinys": "asdas"
+    "hj": {
+        "vardas_pavarde": "hj",
+        "komentaras": "hj",
+        "alga": "jh",
+        "priimtas": "jh",
+        "atleistas": "jh",
+        "tel_numeris": "jh",
+        "ak": "jh",
+        "issilavinimas": "hj",
+        "padalinys": "jh"
     }
 }

@@ -1,4 +1,5 @@
 import PySimpleGUI as sg
+from datetime import date
 from personalo_valdymas import PersonaloValdymas, Darbuotojas
 
 darbuotojai = PersonaloValdymas()
@@ -52,7 +53,15 @@ while True:
             sg.popup('Pasirinkite eilutę')
         else:
             if sg.popup_ok_cancel('Ar tikrai norite tęsti?') == 'OK':
-                del td[values['myTable'][0]]
+                pasirinkta_eilute = values['myTable'][0]
+                pasirinktas_vardas = td[pasirinkta_eilute][0]
+                print(pasirinktas_vardas)
+                del td[pasirinkta_eilute]
+                data = date.today()
+                data_str = data.strftime('%Y-%m-%d')
+                darbuotojai.atleisti_darbuotoja(pasirinktas_vardas, data_str)
+                darbuotojai.atleistu_darbuotoju_sarasas()
+                darbuotojai.darbuotoju_sarasas()
                 window['myTable'].update(values=td)
 
     if event in (sg.WIN_CLOSED, 'Exit'):

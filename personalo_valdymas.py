@@ -2,6 +2,7 @@ import os
 import logging
 import pickle
 import json
+from datetime import date
 
 def create_logger(logger_name, log_file):
     # Logger'is
@@ -31,6 +32,12 @@ def clear():
         os.system('clear')
 
 padaliniai = ["IT skyrius", "Finansai", "Administracija"]
+
+class DateEncoder(json.JSONEncoder):
+    def default(self, obj):
+        if isinstance(obj, date):
+            return obj.strftime('%Y-%m-%d')
+        return json.JSONEncoder.default(self, obj)
 
 class Darbuotojas():
     def __init__(self, vardas_pavarde, komentaras, alga, priimtas, atleistas, tel_numeris, ak, issilavinimas, padalinys):
@@ -139,11 +146,14 @@ class PersonaloValdymas():
     def get_darbuotojas(self, vardas_pavarde):
         return self.__darbuotojai.get(vardas_pavarde, None)
     
+    def atleisti_darbuotojai(self):
+        return self.__atleisti_darbuotojai
+    
     def atleistu_darbuotoju_sarasas(self):
         print("Atleistu darbuotoju sarasas")
         print(list(self.__atleisti_darbuotojai.values()))
         with open('Atleistu_darbuotoju_sarasas.json', 'w') as f:
-            json.dump(self.__atleisti_darbuotojai, f, indent=4)
+            json.dump(self.__atleisti_darbuotojai, f, indent=4, cls=DateEncoder)
         return list(self.__atleisti_darbuotojai.values())
 
     def pickle_sukurimas(self):
