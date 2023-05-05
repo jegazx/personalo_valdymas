@@ -4,13 +4,13 @@ from personalo_valdymas import PersonaloValdymas, Darbuotojas
 class TestPersonaloValdymas(unittest.TestCase):
     def setUp(self):
         self.obj = PersonaloValdymas()
-        self.obj.prideti_darbuotoja("Algis Algimantas", "Etatinis tinginys", 2000, "2018-05-16", None, 456789321, "78946855", "santechnikas", "traktoristas")
-        self.obj.prideti_darbuotoja("Briedis Briedinskas", "Misko nususelis laukiantis medziokles sezono", 250, "2020-01-20)", None, 123456789, "10000001", "Pro zoles edikas", "Edikai")
-        self.obj.prideti_darbuotoja("Lape Lapute", "Sukta brukta", 5000, "2018-05-10", None, 8888529, "100478001", "Sukciu", "IT specialybe")
-        self.obj.prideti_darbuotoja("Kiskis Piskis", "Suolininkas", 500, "2012-07-22", None, "199999999", "91111111", "Atletika", "Buchalteris")
+        self.obj.prideti_darbuotoja("Algis Algimantas", "Etatinis tinginys", 2000, "2018-05-16", 456789321, "78946855", "santechnikas", "traktoristas", None)
+        self.obj.prideti_darbuotoja("Briedis Briedinskas", "Misko nususelis laukiantis medziokles sezono", 250, "2020-01-20)", 123456789, "10000001", "Pro zoles edikas", "Edikai", None)
+        self.obj.prideti_darbuotoja("Lape Lapute", "Sukta brukta", 5000, "2018-05-10", 8888529, "100478001", "Sukciu", "IT specialybe", None)
+        self.obj.prideti_darbuotoja("Kiskis Piskis", "Suolininkas", 500, "2012-07-22", "199999999", "91111111", "Atletika", "Buchalteris", None)
 
     def test_prideti_darbuotoja(self):
-        self.obj.prideti_darbuotoja("Tomas Tomaitis", "programuotojas", 2500, "2021-09-01", None, "123456789", "987654321", "informatikos inžinierius", "IT skyrius")
+        self.obj.prideti_darbuotoja("Tomas Tomaitis", "programuotojas", 2500, "2021-09-01", "123456789", "987654321", "informatikos inžinierius", "IT skyrius", None)
         darbuotojas = self.obj.get_darbuotojas("Tomas Tomaitis")
         self.assertEqual(darbuotojas["vardas_pavarde"], "Tomas Tomaitis")
 

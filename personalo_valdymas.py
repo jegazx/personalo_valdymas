@@ -50,7 +50,7 @@ class PersonaloValdymas():
         self.__atleisti_darbuotojai = {}
         
     def prideti_darbuotoja(self, vardas_pavarde, komentaras, alga, priimtas, tel_numeris, ak, issilavinimas, padalinys, atleistas=""):
-        darbuotojas = {'Vardas Pavardė': vardas_pavarde, 'Komentaras': komentaras, 'Alga': alga, 'Priimtas': priimtas, 'Telefono numeris': tel_numeris, 'Asmens kodas': ak, 'Išsilavinimas': issilavinimas, 'Padalinys': padalinys, 'Atleistas': atleistas}
+        darbuotojas = {'vardas_pavarde': vardas_pavarde, 'komentaras': komentaras, 'alga': alga, 'priimtas': priimtas, 'tel_numeris': tel_numeris, 'ak': ak, 'issilavinimas': issilavinimas, 'padalinys': padalinys, 'atleistas': atleistas}
         self.__darbuotojai[vardas_pavarde] = darbuotojas
         print(f"{vardas_pavarde} buvo pridėtas")
         logger.info(f'Pridėtas darbuotojas: "{vardas_pavarde}"')
@@ -59,7 +59,7 @@ class PersonaloValdymas():
     def atleisti_darbuotoja(self, vardas_pavarde, atleistas):
         darbuotojas = self.__darbuotojai.pop(vardas_pavarde, None)
         if darbuotojas:
-            darbuotojas['Atleistas'] = atleistas
+            darbuotojas['atleistas'] = atleistas
             self.__atleisti_darbuotojai[vardas_pavarde] = darbuotojas
             logger.info(f'Atleistas darbuotojas: "{vardas_pavarde}"')
             PersonaloValdymas.pickle_sukurimas(self)
@@ -69,7 +69,7 @@ class PersonaloValdymas():
         if darbuotojas:
             vardas, pavarde = vardas_pavarde.split()
             vardas = naujas_vardas
-            darbuotojas['Vardas Pavardė'] = vardas + " " + pavarde
+            darbuotojas['vardas_pavarde'] = vardas + " " + pavarde
             logger.info(f'Pakeistas darbuotojas vardas. Naujas vardas ir pavardė: "{vardas} {pavarde}"')
             self.__darbuotojai[darbuotojas['vardas_pavarde']] = darbuotojas
             PersonaloValdymas.pickle_sukurimas(self)
